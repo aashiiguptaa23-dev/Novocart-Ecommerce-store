@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NovaCart</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <nav class="navbar">
+    <h2 class="logo">NovaCart</h2>
+
+    <div class="search-wrapper">
+      <input type="text" id="searchInput" placeholder="Search products..." autocomplete="off" />
+      <ul id="searchSuggestions" class="search-suggestions hidden"></ul>
+    </div>
+
+    <div class="nav-right">
+      <button id="themeToggle" class="icon-btn" title="Toggle dark mode" aria-label="Toggle dark mode">🌙</button>
+      <button id="wishlistBtn" class="icon-btn" title="Wishlist">❤️ <span id="wishlistCount">0</span></button>
+      <button id="authBtn" class="nav-btn">Login</button>
+      <button id="cartBtn" class="nav-btn">🛒 Cart (<span id="cartCount">0</span>)</button>
+    </div>
+  </nav>
+
+  <section class="hero">
+    <h1>Discover Premium Products</h1>
+    <p>Modern E-Commerce built with Vanilla JavaScript</p>
+  </section>
+
+  <section class="filters">
+    <button class="category-btn active" data-category="all">All</button>
+    <div id="categoryFilters"></div>
+  </section>
+
+  <section class="products-container">
+    <div id="products"></div>
+  </section>
+
+  <div id="sidebarOverlay" class="overlay hidden"></div>
+
+  <aside id="cartSidebar" class="cart-sidebar sidebar-closed">
+    <div class="cart-header">
+      <h2>Your Cart</h2>
+      <button id="closeCart" class="close-btn" aria-label="Close cart">✖</button>
+    </div>
+    <div id="cartItems" class="sidebar-body"></div>
+    <div class="cart-footer">
+      <h3>Total: $<span id="cartTotal">0.00</span></h3>
+    </div>
+  </aside>
+
+  <aside id="wishlistSidebar" class="cart-sidebar wishlist-sidebar sidebar-closed">
+    <div class="cart-header">
+      <h2>Wishlist</h2>
+      <button id="closeWishlist" class="close-btn" aria-label="Close wishlist">✖</button>
+    </div>
+    <div id="wishlistItems" class="sidebar-body"></div>
+  </aside>
+
+  <div id="productModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-content">
+      <button id="closeModal" class="close-btn modal-close" aria-label="Close">✖</button>
+      <img id="modalImage" src="" alt="" />
+      <div class="modal-details">
+        <h2 id="modalTitle"></h2>
+        <p id="modalCategory" class="modal-category"></p>
+        <p id="modalDescription"></p>
+        <p id="modalPrice" class="modal-price"></p>
+        <button id="modalAddToCart" class="primary-btn">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="authModal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-content auth-modal">
+      <button id="closeAuth" class="close-btn modal-close" aria-label="Close">✖</button>
+      <h2 id="authTitle">Login to NovaCart</h2>
+      <form id="authForm">
+        <label>
+          Email
+          <input type="email" id="authEmail" required placeholder="you@example.com" />
+        </label>
+        <label>
+          Password
+          <input type="password" id="authPassword" required placeholder="••••••••" minlength="4" />
+        </label>
+        <button type="submit" class="primary-btn">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast"></div>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
